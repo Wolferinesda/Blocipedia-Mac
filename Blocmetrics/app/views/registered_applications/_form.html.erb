@@ -1,0 +1,18 @@
+<h1>Edit Your Registered App</h1>
+<div class="row">
+	<div class="col-md-8">
+		<%= form_for @registered_app do |f| %>
+			<div class="form-group">
+				<%= f.label :name %>
+				<%= f.text_field :name, class: 'form-control', placeholder: "Enter the site's name here!" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :URL %>
+				<%= f.text_field :url, class: 'form-control', placeholder: "Enter the site's URL here!" %>
+			</div>
+			<div class="form-group">
+				<%= f.submit "Save", class: 'btn btn-success' %>
+			</div>
+		<% end %>
+	</div>
+</div>

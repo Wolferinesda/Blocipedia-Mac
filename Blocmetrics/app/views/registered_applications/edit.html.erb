@@ -1,0 +1,8 @@
+<div class="container-fluid app edit">
+  <h1>Edit: <%= "#{@registered_app.name}" %></h1>
+  <div class="row">
+  	<div class="col-8">
+  		<%= render partial: "registered_applications/form", locals: { registered_application: @registered_app } %>
+  	</div>
+  </div>
+</div>

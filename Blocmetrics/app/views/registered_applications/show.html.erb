@@ -1,0 +1,32 @@
+<h1><%= @registered_app.name %></h1>
+
+<div class="row">
+	<div class="col-md-8">
+		<h4>URL: <%= link_to @registered_app.url, "http://#{@registered_app.url}" %></h4>
+		<p>Added by <%= @registered_app.user.email %></p>
+		<div class="col-8">
+			<table class="table table-striped">
+				<thead class="thead-inverse">
+					<tr>
+						<th>Event Name</th>
+						<th class="count">Count:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @events.each do |event, event_count| %>
+					<tr>
+						<td><%= event %></td>
+						<td class="count"><%= event_count.length %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<%= link_to "Edit", edit_registered_application_path, class: 'btn btn-success' %>
+		<%= link_to "Delete", [@registered_app], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this app from Blocmetrics?'} %>
+		<br>
+		<%= link_to "Back", registered_applications_path, class: "ion ion-arrow-left-c" %>
+	</div>
+</div>

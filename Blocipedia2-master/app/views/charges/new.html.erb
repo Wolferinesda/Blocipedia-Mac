@@ -1,0 +1,21 @@
+<%= form_tag charges_path do %>
+<br>
+<p>Your current membership level is: <strong><%= current_user.role %></strong></p>
+  <% if current_user.role == 'standard' %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class="amount">
+        <span>Upgrade to Premium: $15.00</span>
+      </label>
+    </article>
+     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="A month's subscription"
+            data-amount="1500"
+            data-locale="auto"></script>
+    <% end %>
+<% end %>
