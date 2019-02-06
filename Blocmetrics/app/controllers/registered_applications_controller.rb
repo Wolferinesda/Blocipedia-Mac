@@ -16,7 +16,7 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def index
-    @registered_apps = RegisteredApplication.all
+    @registered_apps = RegisteredApplication.where(user_id: current_user.id)
   end
 
   def show

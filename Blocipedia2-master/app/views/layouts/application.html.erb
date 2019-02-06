@@ -12,7 +12,7 @@
   <body>
     <div class="nav nav-tabs">
         <%= link_to "Home", welcome_index_path, class: 'btn btn-primary' %>
-        <%= link_to "About", welcome_about_path, class: 'btn btn-primary' %>
+        <%= link_to "About", welcome_about_path, class: 'btn btn-primary', :onclick => "blocmetrics.report('about link clicked')" %>
         <%= link_to "Wikis", wikis_path, class: 'btn btn-primary' %>
         <% if user_signed_in? %>
           <% if current_user.standard? %>

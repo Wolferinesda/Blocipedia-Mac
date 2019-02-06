@@ -6,6 +6,7 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
     @user = User.new(email: "fake@fake.com", password: "helloworld")
     @user.skip_confirmation!
     @user.save
+    sign_in @user
   end
 
   let(:registered_application) {RegisteredApplication.create!(name: "Test" , url: "Test.com", user: @user )}
@@ -27,13 +28,13 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
   describe "GET #new" do
     it "returns http success" do
       get :new
-      expect(response).to have_http_status(:redirect)
+      expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET #create" do
-    it "returns http success" do
-      get :create
+    it "returns http redirect" do
+      post :create, params: { registered_application: { name: Faker::Dog.name, url: Faker::Internet.url } }
       expect(response).to have_http_status(:redirect)
     end
   end
@@ -41,19 +42,19 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
   describe "GET #edit" do
     it "returns http success" do
       get :edit, params: {id: registered_application.id}
-      expect(response).to have_http_status(:redirect)
+      expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET #update" do
-    it "returns http success" do
-      get :update, params: {id: registered_application.id}
+    it "returns http redirect" do
+      post :update, params: { id: registered_application.id, registered_application: { name: Faker::Dog.name, url: Faker::Internet.url } }
       expect(response).to have_http_status(:redirect)
     end
   end
 
   describe "GET #destroy" do
-    it "returns http success" do
+    it "returns http redirect" do
       get :destroy, params: {id: registered_application.id}
       expect(response).to have_http_status(:redirect)
     end

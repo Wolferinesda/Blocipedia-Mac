@@ -3,4 +3,6 @@ class RegisteredApplication < ApplicationRecord
   has_many :events
 
   validates :user, presence: true
+  validates :url, presence: true
+  validates :name, presence: true
 end
