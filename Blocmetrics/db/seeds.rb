@@ -22,6 +22,12 @@ user.update_attributes!(
     user: User.first
   )
 end
+
+RegisteredApplication.create(
+    name: "LocalHost Test",
+    url: "http://localhost",
+    user: User.first
+)
 registered_application = RegisteredApplication.all
 
 # Create Events

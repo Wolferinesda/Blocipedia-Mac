@@ -34,7 +34,7 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
 
   describe "GET #create" do
     it "returns http redirect" do
-      post :create, params: { registered_application: { name: Faker::Dog.name, url: Faker::Internet.url } }
+      post :create, params: { registered_application: { name: Faker::Creature::Dog.name, url: Faker::Internet.url } }
       expect(response).to have_http_status(:redirect)
     end
   end
@@ -48,7 +48,7 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
 
   describe "GET #update" do
     it "returns http redirect" do
-      post :update, params: { id: registered_application.id, registered_application: { name: Faker::Dog.name, url: Faker::Internet.url } }
+      post :update, params: { id: registered_application.id, registered_application: { name: Faker::Creature::Dog.name, url: Faker::Internet.url } }
       expect(response).to have_http_status(:redirect)
     end
   end
