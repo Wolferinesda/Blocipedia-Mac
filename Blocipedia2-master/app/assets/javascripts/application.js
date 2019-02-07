@@ -28,4 +28,5 @@ blocmetrics.report = function(eventName){
   request.setRequestHeader('Content-Type', 'application/json');
   // #5
   request.send(JSON.stringify(event));
+  console.log("THE REPORT FUNCTION HAS BEEN CALLED!");
 };
