@@ -14,7 +14,8 @@ class API::EventsController < ApplicationController
   def create
     registered_application = RegisteredApplication.find_by(url: request.env['HTTP_ORIGIN'])
     puts '==DEBUG: events_controller#create=='
-    puts "registered application: #{registered_application}\n"
+    puts "registered application:\n"
+    p registered_application
     puts "url: #{request.env['HTTP_ORIGIN']}\n"
     puts "request.env: #{request.env.inspect}\n"
     puts "event_params: #{event_params}"

@@ -25,7 +25,7 @@ end
 
 RegisteredApplication.create(
     name: "LocalHost Test",
-    url: "http://localhost",
+    url: "http://localhost:3001",
     user: User.first
 )
 registered_application = RegisteredApplication.all
